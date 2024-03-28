@@ -76,7 +76,6 @@ class Parallel_Concatenation_MLP(nn.Module):
         self.output=Linear(self.output_size*self.size, self.output_size)
     def forward(self, x):
         print('Params',self.output_size* self.size,len(self.MLP_list),self.size)
-        print('bbbb',(self.MLP_list))
         for idx,model in enumerate(self.MLP_list):
             print('=============================================')
             print(f'Index {idx}')
@@ -109,8 +108,7 @@ def merged_models(dir_name,model:nn.Module,optimizer:torch.optim):
             param.requires_grad = False
         # for name, param in model_merged.named_parameters():
         #     print('Name layer',name)
-        models.append(model_merged)
-    print('AAAAA',models)           
+        models.append(model_merged)         
     mmlp_model=Parallel_Concatenation_MLP(models_list=models,size=len(models),output_size=3)
     print(f'Model after concat {mmlp_model}')
     return mmlp_model,len(models)
