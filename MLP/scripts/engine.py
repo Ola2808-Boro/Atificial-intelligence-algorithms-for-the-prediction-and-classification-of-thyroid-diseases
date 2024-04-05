@@ -10,6 +10,9 @@ from torch.optim.lr_scheduler import ExponentialLR
 from .setup_data import read_csv_data,balancing_dataset,select_features,preprocessing_data,convert_to_tensors,create_dataset,create_dataloder
 from .model import merged_models,MLP
 import pandas as pd
+import logging
+
+logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
 
 def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.optim.Optimizer,scheduler,loss_fn:nn.Module,accuracy,precision, recall, f1_score,roc,device:torch.device,model_name:str):
@@ -33,7 +36,7 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
     Returns:
         Tuple: A tuple containing the average loss, accuracy, precision, F1 score, and recall for the current epoch.
     """
-    print(f'Model train {model_name} epoch {epoch}')
+    logging.info(f'Model train {model_name} epoch {epoch} model {model}')
     model.train()
     loss_avg=0
     acc_avg=0
@@ -41,14 +44,14 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
     recall_avg=0
     f1_score_avg=0
     for batch,(x,y) in enumerate(dataloader):
-        #print(f'Batch {batch}')
+        logging.info(f'Batch {batch} model {model}')
         x,y=x.to(torch.float32),y.to(torch.long)
         y_pred=model(x).squeeze()
         y = y.squeeze()
         y_pred_class=torch.softmax(y_pred, dim=1).argmax(dim=1)
         #print(f'Pred logits {y_pred[0][0]}')
         #print(f'y:{y}, y_pred_logits: { y_pred}')
-        print(f'Shape y {y.shape},y_pred:{y_pred.shape}')
+        logging.info(f'Shape y {y.shape},y_pred:{y_pred.shape}')
         #print(f'y_pred_class {y_pred_class} y_pred_class shape:{y_pred_class.shape}')
         #print(f'To loss_fn y_pred_logits {y_pred.shape} y: {y.shape}')
         #print(f'Data type x:{x.shape}, y: {y.shape}')
@@ -77,7 +80,7 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
     target_names = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning']
     report=classification_report(y, y_pred_class, target_names=target_names)
     #report=classification_report(y, y_pred_class, target_names=target_names,output_dict=True)
-    print(report)
+    logging.info(f'Report {report}')
 #     wandb.log(report)
 #     wandb.log({f"conf_mat_{epoch}" : wandb.plot.confusion_matrix(
 #                          y_true=y, preds=y_pred_class,
@@ -130,7 +133,7 @@ def test_step(model:nn.Module,epoch:int, dataloader:DataLoader,loss_fn:nn.Module
             y_pred=model(x).squeeze()
             y_pred_class=torch.softmax(y_pred, dim=1).argmax(dim=1)
             #y_pred=model(x).squeeze()
-            print(f'Shape y {y.shape},y_pred:{y_pred.shape}')
+            logging.info(f'Shape y {y.shape},y_pred:{y_pred.shape}')
             #y = y.squeeze()
             #y_pred_class=torch.softmax(y_pred, dim=1).argmax(dim=1)
             loss=loss_fn(y_pred,y)
@@ -156,7 +159,7 @@ def test_step(model:nn.Module,epoch:int, dataloader:DataLoader,loss_fn:nn.Module
 #         plt.show()
        
         target_names = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning']
-        print(classification_report(y, y_pred_class, target_names=target_names))
+        logging.info(classification_report(y, y_pred_class, target_names=target_names))
         #print(classification_report(y, y_pred_class, target_names=target_names,output_dict=True))
         cm=confusion_matrix(y,y_pred_class)
         cm_df = pd.DataFrame(cm,
@@ -246,7 +249,7 @@ def train(model:nn.Module,
                                                                                       scheduler=scheduler, 
                                                                                       device=device,
                                                                                       model_name=model_name)
-        print(
+        logging.info(
             f"Epoch: {epoch+1} | "
             f"train_loss: {train_loss:.4f} | "
             f"train_acc: {train_acc:.4f} |"
@@ -273,7 +276,7 @@ def train(model:nn.Module,
                                                                           device=device,
                                                                           model_name=model_name)
 
-    print(f"test_loss: {test_loss:.4f} test_acc: {test_acc:.4f}, test_prec: {test_precision:.4f}, test_f1_score: {test_f1_score:.4f} test_recall: {test_recall:.4f}")
+    logging.info(f"test_loss: {test_loss:.4f} test_acc: {test_acc:.4f}, test_prec: {test_precision:.4f}, test_f1_score: {test_f1_score:.4f} test_recall: {test_recall:.4f}")
     result_test['test_loss']=round(test_loss,5)
     result_test['test_acc']=round(test_acc,5)
     result_test['test_precision']=round(test_precision,5)
@@ -281,7 +284,7 @@ def train(model:nn.Module,
     result_test['test_f1_score']=round(test_f1_score,5)
     
     for name, param in model.named_parameters():
-            print('Name layer default pass to save',name)
+            logging.info(f'Name layer default pass to save {name}')
     save_model_weights(model=model,optimizer=optimizer,epoch=epoch,loss=test_loss,dir_name=dir_name,model_name=model_name)
     
     return result_train,result_test
@@ -326,7 +329,7 @@ def train_MLP(
     models_list=[]
     optimizer=''
     if mmlp_option['concatenation_option'].lower()=='single':
-        print(f'Model architecture {input_size,hidden_units,hidden_size,output_size}')
+        logging.info(f'Model architecture {input_size,hidden_units,hidden_size,output_size}')
         model = MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=False)
         models_list.append(model)
     else:
@@ -336,38 +339,38 @@ def train_MLP(
                 models_list.append(MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=False))
             #model=Parallel_Concatenation_MLP(models_list,mmlp_option['size'],mmlp_option['output_size'])
             #print(model)
+    path_train='C:/Users/olkab/Desktop/Magisterka\Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/Thyroid Disease Garvan Institute/ann-train.data'
+    path_test='C:/Users/olkab/Desktop/Magisterka\Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/Thyroid Disease Garvan Institute/ann-test.data'
+    paths=[path_train,path_test]
+    df=read_csv_data(paths)
+    logging.info('Read data')
+        #plot_data_distribution(df,'Original data')
+    if option!='None':
+            logging.info(f'Resampled data, method: {option}')
+            resampled_data=balancing_dataset(option,df)
+    #         X_train,y_train=resampled_data[0]
+    #         X_test,y_test=resampled_data[1]
+            df=[resampled_data[0],df[1]]
+            #plot_data_distribution(df,f'Resampled data, method: {option}') 
+    logging.info('Select data')
+    df_corr=select_features(num=num_features,df_list=df)
+    logging.info('Processing data')
+    preprocessed_df=preprocessing_data(df_corr)
+    logging.info('Converts data to tensors')
+    tensors=convert_to_tensors(preprocessed_df)#[[X,y],[X,y]]
+    logging.info('Creating datasets')
+    datasets=create_dataset(tensors)
+    logging.info('Creating dataloaders')
+    train_dataloader,test_dataloader=create_dataloder(batch_size=batch_size, datasets=datasets)
     for idx,model in enumerate(models_list):
         if  optimizer_name.lower()=='adam':
             optimizer = torch.optim.Adam(model.parameters())
         elif  optimizer_name.lower()=='SGD':
             optimizer = torch.optim.SGD(model.parameters())
         else:
-            print(f'Enter the correct name of the optimizer')
+            logging.warning(f'Enter the correct name of the optimizer')
 
 
-        path_train='C:/Users/olkab/Desktop/Magisterka\Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/Thyroid Disease Garvan Institute/ann-train.data'
-        path_test='C:/Users/olkab/Desktop/Magisterka\Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/Thyroid Disease Garvan Institute/ann-test.data'
-        paths=[path_train,path_test]
-        print('Read data')
-        df=read_csv_data(paths)
-        #plot_data_distribution(df,'Original data')
-        if option!='None':
-            print(f'Resampled data, method: {option}')
-            resampled_data=balancing_dataset(option,df)
-    #         X_train,y_train=resampled_data[0]
-    #         X_test,y_test=resampled_data[1]
-            df=[resampled_data[0],df[1]]
-            #plot_data_distribution(df,f'Resampled data, method: {option}') 
-        print('Select data')
-        df_corr=select_features(num=num_features,df_list=df)
-        print('Processing data')
-        preprocessed_df=preprocessing_data(df_corr)
-        print('Convers data to tensors')
-        tensors=convert_to_tensors(preprocessed_df)#[[X,y],[X,y]]
-        print('Creating datasets')
-        datasets=create_dataset(tensors)
-        print('Creating dataloaders')
-        train_dataloader,test_dataloader=create_dataloder(batch_size=batch_size, datasets=datasets)
         result_train,result_test=train(
             model=model, 
             train_dataloader=train_dataloader,
@@ -378,8 +381,10 @@ def train_MLP(
             model_name=f'MLP_{str(idx+1)}',
             dir_name=dir_name
         )
+    logging.info(f'End base option of training')
     if mmlp_option['concatenation_option'].lower()=='parallel':
         merged_model,MLP_num=merged_models(dir_name=dir_name,model= MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=False),optimizer=optimizer)
+        logging.info('After merged models')
         #merged_model=merged_models(dir_name=dir_name,model= MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=True),optimizer=optimizer)
         #train_dataloader,test_dataloader=create_dataloder(batch_size=batch_size, datasets=datasets)
         result_train,result_test=train(

@@ -7,7 +7,7 @@ import glob
 from .utils import load_model_weights
 import logging
 
-logging.basicConfig(filename='MLP.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
 
 class MLP(nn.Module):
@@ -28,28 +28,28 @@ class MLP(nn.Module):
     """
     def __init__(self,input_size:int, hidden_layers:int,hidden_units:int,output_size:int,remove_output_layer:bool):
         super(MLP, self).__init__()
-        self.layers = nn.ModuleList()
-        self.layers.append(
+        layers = nn.ModuleList()
+        layers.append(
              Linear(input_size, hidden_units)
         )
-        self.layers.append(
+        layers.append(
                 Tanh()
                 )
         for num_layer in range(hidden_layers):
-            self.layers.append(
+            layers.append(
                 Linear(hidden_units, hidden_units)
                 )
-            self.layers.append(
+            layers.append(
                 Tanh()
                 )
         if remove_output_layer==False:
-            self.layers.append(
+            layers.append(
                     Linear(hidden_units,output_size)
                     )
         # else:
         #     self.layers.pop(key=-1)
             #TODO: usunac chyba Tanh() 
-        self.enc_red = nn.Sequential(*self.layers)  
+        self.enc_red = nn.Sequential(*layers)  
     def forward(self, x):
         """
         Initializes the MLP neural network model.
@@ -75,17 +75,16 @@ class Parallel_Concatenation_MLP(nn.Module):
         self.output_size=output_size
         self.output=Linear(self.output_size*self.size, self.output_size)
     def forward(self, x):
-        print('Params',self.output_size* self.size,len(self.MLP_list),self.size)
+        logging.info(f'Params input size {self.output_size* self.size}, num of MLP: {len(self.MLP_list)}')
         for idx,model in enumerate(self.MLP_list):
-            print('=============================================')
-            print(f'Index {idx}')
-            print(f'Forward {model}')
-            print(f'Output {model(x).shape}')
-            print('=============================================')
+            logging.info(f'Model MLP {idx} architecture {model}, output shape: {model(x).shape}')
+            for param in model.parameters():
+                param.requires_grad = False
             self.outputs.append(model(x))
-        print('Shapes',len(self.outputs),self.outputs[0].shape,self.outputs[1].shape)
+        logging.info(f'Shapes from MLP {[output.shape for output in self.outputs]}',)
         concatenated_output = torch.cat(self.outputs, dim=1)
-        print(f'Concat shape {concatenated_output.shape}')
+        self.outputs=[]
+        logging.info(f'Shape after concatenating {concatenated_output.shape}')
         return self.output(concatenated_output)
     
 
@@ -96,19 +95,19 @@ def merged_models(dir_name,model:nn.Module,optimizer:torch.optim):
     files_pth=(glob.glob(f'{BASE_DIR}/{dir_name}/*.pth'))
     files=files_pt+files_pth
     files_clean=[file_itm.replace('\\','/').replace('//','/') for file_itm in files]
-    print(f'Files {files}, clean {files_clean}')
-    print(f'Merged models files:{files}, dir_name {dir_name}')
+    logging.info(f'Files with weights to merge :{files_clean}')
     
     models=[]
     for file_itm in files_clean:
         for name, param in model.named_parameters():
-            print('Name layer default',name)
+            logging.info(f'Model Name layer default {name}')
         model_merged,optimizer,epoch,loss=load_model_weights(model,file_itm,optimizer)
         for param in model_merged.parameters():
             param.requires_grad = False
         # for name, param in model_merged.named_parameters():
         #     print('Name layer',name)
-        models.append(model_merged)         
+        models.append(model_merged)  
+    logging.info(f'Models {models}')       
     mmlp_model=Parallel_Concatenation_MLP(models_list=models,size=len(models),output_size=3)
-    print(f'Model after concat {mmlp_model}')
+    logging.info(f'Model architecture after concatenating {mmlp_model}')
     return mmlp_model,len(models)

@@ -24,7 +24,9 @@ from imblearn.combine import SMOTEENN,SMOTETomek
 from torchsummary import summary
 import datetime
 import glob
+import logging
 
+logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
 def read_csv_data(paths:list):
     """
@@ -73,10 +75,8 @@ def balancing_dataset(option:str,df:pd.DataFrame):
     for data in df:
             X_resampled, y_resampled = algorithm.fit_resample(data.drop('class',axis=1), data['class'])
             df_resampled=pd.concat([X_resampled, y_resampled],axis=1)
-            print('===============================================================================================')
-            print(data['class'].value_counts())
-            print(df_resampled['class'].value_counts())
-            print('===============================================================================================')
+            logging.info(f'Classes {data["class"].value_counts()}')
+            logging.info(f'Classes after resampled {df_resampled["class"].value_counts()}')
             resampled_data.append(df_resampled)
     return resampled_data
 
@@ -96,17 +96,16 @@ def select_features(num:int,df_list:list):
     """
         
     df_corr_list=[]
-    for df in df_list:
+    dropped_labels=[]
+    for idx,df in enumerate(df_list):
         print('-------------------------------------------------')
-        print(f'Df before selecting features {df.head()}')
         df_corr=df.corr()
         df_corr['class'].sort_values(ascending=False)[:num]
-        dropped_labels=df_corr['class'].sort_values(ascending=False)[num:].index
-        print('Dropped lables ', dropped_labels)
+        if idx==0:
+            dropped_labels=df_corr['class'].sort_values(ascending=False)[num:].index
+        logging.info(f'Dropped lables {dropped_labels}')
         df=df.drop(dropped_labels,axis=1)
         df_corr_list.append(df)
-        print(f'Df after selecting features {df.head()}')
-        print('-------------------------------------------------')
     return df_corr_list
 
 
@@ -125,15 +124,12 @@ def preprocessing_data(df_list:list):
     """
     df_preprocessed_list=[]
     for df in df_list:
-        print(f'Df before processing {df.head()}')
         scaler = StandardScaler() 
         standard = scaler.fit_transform(df.drop('class',axis=1)) 
         columns_names=[f'column {id+1}' for id in range(12)]
         df_standard=pd.DataFrame(standard,columns=[f'column {id+1}' for id in range(12)])
         class_df=pd.DataFrame(df['class'].values,columns=['class']).map(lambda x: x-1)
-        print('Class ',class_df)
         df=pd.concat([df_standard, class_df],axis=1)
-        print('Finally ',df.head())
         df_preprocessed_list.append(df)
     return df_preprocessed_list
 

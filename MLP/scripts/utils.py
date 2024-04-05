@@ -3,6 +3,9 @@ from torch import nn
 import torch
 import seaborn as sns
 import os
+import logging
+
+logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
 def plot_data_distribution(df_list:list,title:str):
     """
@@ -15,15 +18,13 @@ def plot_data_distribution(df_list:list,title:str):
     and plots it as a bar chart.
     """
     for df in df_list:
-        print('Train data distribution',df['class'].value_counts())
+        logging.info(f'Train data distribution: {df["class"].value_counts()}')
         df_disctribution=df['class'].value_counts().sort_values(ascending=True)
         data={}
         for idx in df_disctribution.index:
             data.update({f'{idx}':df_disctribution[idx]})
-        print(data)
         labels=list(data.keys())
         values=list(data.values())
-        print(type(labels),type(values),labels,values)
         fig = plt.figure(figsize = (10, 5))
         plt.bar(labels,values,color ='maroon', 
         width = 0.4)
@@ -55,9 +56,9 @@ def plot_correlation(df):
 def save_model_weights(model:nn.Module,optimizer:torch.optim,epoch:int,loss:int,dir_name:str,model_name:str):
     path_dir=create_experiments_dir(dir_name=dir_name)
     path=path_dir+'/'+model_name+'.pth'
-    print(f'Path to save model {path}, model {model_name}')
+    logging.info(f'Path to save model {path}, model {model_name}')
     for name, param in model.named_parameters():
-            print('Name layer default save',name)
+            logging.info(f'Name layer default save {name}')
     torch.save({
             'epoch': epoch,
             'model_state_dict': model.state_dict(),
@@ -83,6 +84,7 @@ def load_model_weights(model:nn.Module,path:str,optimizer:torch.optim):
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     epoch = checkpoint['epoch']
     loss = checkpoint['loss']
+    logging.info(f'Loading weights')
     
     return model,optimizer,epoch,loss
 

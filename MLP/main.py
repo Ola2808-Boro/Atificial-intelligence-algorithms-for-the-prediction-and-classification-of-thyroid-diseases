@@ -1,6 +1,7 @@
 from scripts.engine import train_MLP
 import datetime
-
+import logging
+logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 
 #Project
 project_name="MLP"
