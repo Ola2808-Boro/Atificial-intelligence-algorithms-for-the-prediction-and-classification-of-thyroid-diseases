@@ -4,8 +4,81 @@ import torch
 import seaborn as sns
 import os
 import logging
+import json
+from torch.optim.lr_scheduler import LambdaLR,StepLR,ConstantLR,LinearLR,ExponentialLR,ReduceLROnPlateau
 
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
+BASE_DIR='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP'
+
+
+class Sin(nn.Module):
+    def __init__(self):
+        pass
+    def forward(self,x):
+        return torch.sin(x)
+    
+
+class Logarithmic(nn.Module):
+    def __init__(self):
+        pass
+    def forward(self,x):
+        if x>=0:
+            return torch.log(x+1)
+        else:
+            return -torch.log(-x+1)
+    
+#TODO:
+#check Neural func 
+class Neural(nn.Module):
+    def __init__(self):
+        pass
+    def forward(self,x):
+        return (1/1+torch.exp(-torch.sin(x)))
+
+
+
+def define_activation_function(activation_function:str)->nn.Module:
+    logging.info(f'Passed activation function {activation_function.lower()}')
+    if activation_function.lower()=='sigmoid':#sigmoidalna
+        activation_function=nn.Sigmoid()
+    elif activation_function.lower()=='tanh': #tangens hiperboliczny
+        activation_function=nn.Tanh() 
+    elif activation_function.lower()=='neural': #neuronalna
+        activation_function=Neural()
+    elif activation_function.lower()=='exponential': #wykładnicza
+        activation_function=nn.ELU()
+    elif activation_function.lower()=='log':#logarytmiczna
+        activation_function=Logarithmic()
+    elif activation_function.lower()=='sin': #sinusoidalna
+        activation_function=Sin()
+    else:
+         logging.warning('Default activation function')
+         activation_function=nn.Tanh()
+    logging.info(f'Returned activation function {activation_function}')
+    return activation_function
+
+
+def define_scheduler(scheduler:str,optimizer:torch.optim)->nn.Module:
+    logging.info(f'Passed activation function {activation_function.lower()}')
+    if activation_function.lower()=='lambdalr':#sigmoidalna
+        lambda1 = lambda epoch: 0.95 ** epoch
+        scheduler=LambdaLR(optimizer=optimizer,lr_lambda=lambda1)
+    elif activation_function.lower()=='steplr': #tangens hiperboliczny
+        scheduler = StepLR(optimizer, step_size=30, gamma=0.1)
+    elif activation_function.lower()=='constantlr': #neuronalna
+        activation_function=ConstantLR(optimizer=optimizer,factor=0.5)
+    elif activation_function.lower()=='exponential': #wykładnicza
+        activation_function=nn.LinearLR(optimizer=optimizer)
+    elif activation_function.lower()=='chainedscheduler':#logarytmiczna
+        activation_function=ExponentialLR(optimizer=optimizer, gamma=0.1)
+    elif activation_function.lower()=='reducelronplateau': #sinusoidalna
+        activation_function=ReduceLROnPlateau(optimizer=optimizer,mode='min')#TODO scheduler.step(metrics)
+    else:
+         logging.warning('Default activation function')
+         activation_function=nn.Tanh()
+    logging.info(f'Returned scheduler {scheduler}')
+    return scheduler
+
 
 def plot_data_distribution(df_list:list,title:str):
     """
@@ -65,7 +138,37 @@ def save_model_weights(model:nn.Module,optimizer:torch.optim,epoch:int,loss:int,
             'optimizer_state_dict': optimizer.state_dict(),
             'loss': loss,
             }, path)
+
+def plot_charts(train_result:dict, test_result:dict, model_name:str, dir_name:str):
     
+    epoch=train_result['epoch']
+    for idx,data in enumerate(train_result):
+        if idx!=0:
+            x=epoch
+            y=train_result[idx]
+            plt.plot(x,y)
+            plt.title(f'Model {model_name} metrics: {train_result.keys()[idx]}')
+            plt.xlabel('Epochs')
+            plt.xlabel(f'{train_result.keys()[idx].capitalize()}')
+            path=BASE_DIR+'/'+str(dir_name).replace("\\","/")
+            plt.savefig(f'{path}/{model_name}_{train_result.keys()[idx]}.png')
+    
+
+def save_results(train_result:dict, test_result:dict, model_name:str, dir_name:str):
+    path=BASE_DIR+'/'+str(dir_name).replace("\\","/")
+    train_data=json.dumps(train_result,indent=6)
+    test_data=json.dumps(test_result,indent=6)
+    data=[{
+        'name':'train',
+        'data':train_data
+    },
+    {
+        'name':'test',
+        'data':test_data
+    }]
+    for itm in data:
+        with open(f"f'{path}/{model_name}_{itm['name']}", "w") as file:
+            file.write(itm['data'])
 
 
 def save_model(model:nn.Module,path:str):
@@ -90,7 +193,6 @@ def load_model_weights(model:nn.Module,path:str,optimizer:torch.optim):
 
 def create_experiments_dir(dir_name:str):
     
-    BASE_DIR='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP'
     path=BASE_DIR+'/'+str(dir_name).replace("\\","/")
     print('Path',path)
     try:

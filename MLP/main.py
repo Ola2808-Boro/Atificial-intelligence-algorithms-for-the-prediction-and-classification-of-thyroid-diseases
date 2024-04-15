@@ -11,7 +11,7 @@ input_size=12
 hidden_size=8
 hidden_units=1
 output_size=3
-activation="ReLU"
+activation="sigmoid"
 
 #Model architecture MMLP 
 mmlp_option={
@@ -24,7 +24,8 @@ mmlp_option={
 
 #Training
 optimizer='adam'
-adaptive_lr= 0.01
+lr= 0.01
+adaptive_lr=True
 epochs=5
 
 #Datasets
@@ -62,7 +63,9 @@ train_MLP(
     hidden_units=hidden_units,
     output_size=output_size,
     optimizer_name=optimizer,
-    adaptive_lr= adaptive_lr,
+    lr= lr,
+    adaptive_lr=adaptive_lr,
+    activation_function=activation,
     epochs=epochs,
     balanced_database=balanced_database,
     batch_size=batch_size,

@@ -5,17 +5,17 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay,auc,RocCurv
 import matplotlib.pyplot as plt
 import seaborn as sns
 from torchmetrics.classification import Accuracy, Precision, F1Score, Recall,ROC
-from .utils import save_model_weights, create_experiments_dir,plot_data_distribution
+from .utils import save_model_weights, create_experiments_dir,plot_data_distribution,define_activation_function
 from torch.optim.lr_scheduler import ExponentialLR
 from .setup_data import read_csv_data,balancing_dataset,select_features,preprocessing_data,convert_to_tensors,create_dataset,create_dataloder
 from .model import merged_models,MLP
 import pandas as pd
 import logging
-
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
 
-def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.optim.Optimizer,scheduler,loss_fn:nn.Module,accuracy,precision, recall, f1_score,roc,device:torch.device,model_name:str):
+def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.optim.Optimizer,adaptive_lr:bool,scheduler,loss_fn:nn.Module,accuracy,precision, recall, f1_score,roc,device:torch.device,model_name:str):
     """
     Performs one training step on the model.
 
@@ -44,7 +44,7 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
     recall_avg=0
     f1_score_avg=0
     for batch,(x,y) in enumerate(dataloader):
-        logging.info(f'Batch {batch} model {model}')
+        #logging.info(f'Batch {batch} model {model}')
         x,y=x.to(torch.float32),y.to(torch.long)
         y_pred=model(x).squeeze()
         y = y.squeeze()
@@ -68,7 +68,9 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-    scheduler.step()
+    if adaptive_lr:
+        if isinstance(scheduler,ReduceLROnPlateau(optimizer=optimizer))
+        scheduler.step()
         #print(f'Acc: {acc} prec: {prec} recall {recall_result} f1_score_result {f1_score_result}')
     loss_avg=loss_avg/len(dataloader)
     acc_avg=acc_avg/len(dataloader)
@@ -188,7 +190,7 @@ def train(model:nn.Module,
           test_dataloader:DataLoader,
           epochs:int,
           optimizer:torch.optim,
-          lr:float,
+          adaptive_lr:bool,
           model_name:str,
           dir_name:str,
          ):
@@ -213,7 +215,8 @@ def train(model:nn.Module,
     f1_score=F1Score(task="multiclass", num_classes=3,average='weighted')
     recall=Recall(task="multiclass", num_classes=3,average='weighted')
     roc = ROC(task="multiclass", num_classes=3)
-    scheduler = ExponentialLR(optimizer, gamma=0.9)
+    if adaptive_lr:
+        scheduler = ExponentialLR(optimizer, gamma=0.9)
     device='cuda' if torch.cuda.is_available() else 'cpu'
     result_train={
       'epoch':[],
@@ -246,6 +249,7 @@ def train(model:nn.Module,
                                                                                       f1_score=f1_score,
                                                                                       roc=roc,
                                                                                       optimizer=optimizer,
+                                                                                      adaptive_lr=adaptive_lr,
                                                                                       scheduler=scheduler, 
                                                                                       device=device,
                                                                                       model_name=model_name)
@@ -314,7 +318,9 @@ def train_MLP(
     hidden_units:int,
     output_size: int,
     optimizer_name: str,
-    adaptive_lr: float,
+    lr: float,
+    adaptive_lr:bool,
+    activation_function:str,
     epochs:int,
     balanced_database:bool,
     batch_size:int,
@@ -326,17 +332,18 @@ def train_MLP(
     
     
     create_experiments_dir(dir_name)
+    activation_function=define_activation_function(activation_function=activation_function)
     models_list=[]
     optimizer=''
     if mmlp_option['concatenation_option'].lower()=='single':
         logging.info(f'Model architecture {input_size,hidden_units,hidden_size,output_size}')
-        model = MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=False)
+        model = MLP(input_size,hidden_units,hidden_size,output_size,activation_function,remove_output_layer=False)
         models_list.append(model)
     else:
         if mmlp_option['concatenation_option'].lower()=='parallel':
             for num in range(mmlp_option['num_of_MLP']):
                 #models_list.append(MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=True))
-                models_list.append(MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=False))
+                models_list.append(MLP(input_size,hidden_units,hidden_size,output_size,activation_function,remove_output_layer=False))
             #model=Parallel_Concatenation_MLP(models_list,mmlp_option['size'],mmlp_option['output_size'])
             #print(model)
     path_train='C:/Users/olkab/Desktop/Magisterka\Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/Thyroid Disease Garvan Institute/ann-train.data'
@@ -362,11 +369,12 @@ def train_MLP(
     datasets=create_dataset(tensors)
     logging.info('Creating dataloaders')
     train_dataloader,test_dataloader=create_dataloder(batch_size=batch_size, datasets=datasets)
+  
     for idx,model in enumerate(models_list):
         if  optimizer_name.lower()=='adam':
-            optimizer = torch.optim.Adam(model.parameters())
+            optimizer = torch.optim.Adam(model.parameters(),lr=lr)
         elif  optimizer_name.lower()=='SGD':
-            optimizer = torch.optim.SGD(model.parameters())
+            optimizer = torch.optim.SGD(model.parameters(),lr=lr)
         else:
             logging.warning(f'Enter the correct name of the optimizer')
 
@@ -377,13 +385,14 @@ def train_MLP(
             test_dataloader=test_dataloader,
             epochs=epochs,
             optimizer=optimizer,
-            lr=0.001,
+            adaptive_lr=adaptive_lr,
             model_name=f'MLP_{str(idx+1)}',
             dir_name=dir_name
         )
+    
     logging.info(f'End base option of training')
     if mmlp_option['concatenation_option'].lower()=='parallel':
-        merged_model,MLP_num=merged_models(dir_name=dir_name,model= MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=False),optimizer=optimizer)
+        merged_model,MLP_num=merged_models(dir_name=dir_name,model= MLP(input_size,hidden_units,hidden_size,output_size,activation_function,remove_output_layer=False),optimizer=optimizer)
         logging.info('After merged models')
         #merged_model=merged_models(dir_name=dir_name,model= MLP(input_size,hidden_units,hidden_size,output_size,remove_output_layer=True),optimizer=optimizer)
         #train_dataloader,test_dataloader=create_dataloder(batch_size=batch_size, datasets=datasets)
@@ -393,7 +402,7 @@ def train_MLP(
             test_dataloader=test_dataloader,
             epochs=epochs,
             optimizer=optimizer,
-            lr=0.001,
+            adaptive_lr=adaptive_lr,
             model_name=f'MLP_merged',
             dir_name=dir_name
         )

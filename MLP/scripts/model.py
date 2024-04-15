@@ -26,21 +26,21 @@ class MLP(nn.Module):
     This class defines a simple MLP neural network model with customizable input size,
     number of hidden layers, number of units in each hidden layer, and output size.
     """
-    def __init__(self,input_size:int, hidden_layers:int,hidden_units:int,output_size:int,remove_output_layer:bool):
+    def __init__(self,input_size:int, hidden_layers:int,hidden_units:int,output_size:int,activation_function:torch.nn.Module,remove_output_layer:bool):
         super(MLP, self).__init__()
         layers = nn.ModuleList()
         layers.append(
              Linear(input_size, hidden_units)
         )
         layers.append(
-                Tanh()
+                activation_function
                 )
         for num_layer in range(hidden_layers):
             layers.append(
                 Linear(hidden_units, hidden_units)
                 )
             layers.append(
-                Tanh()
+                activation_function
                 )
         if remove_output_layer==False:
             layers.append(
@@ -88,6 +88,28 @@ class Parallel_Concatenation_MLP(nn.Module):
         return self.output(concatenated_output)
     
 
+# class Stacking_Concatenation_MLP(nn.Module):
+   
+#     def __init__(self,models_list:list,size:int,output_size:int):
+#         super(Parallel_Concatenation_MLP, self).__init__()
+#         self.MLP_list=models_list
+#         self.outputs=[]
+#         self.size=size
+#         self.output_size=output_size
+#         self.output=Linear(self.output_size*self.size, self.output_size)
+#     def forward(self, x):
+#         logging.info(f'Params input size {self.output_size* self.size}, num of MLP: {len(self.MLP_list)}')
+#         for idx,model in enumerate(self.MLP_list):
+#             logging.info(f'Model MLP {idx} architecture {model}, output shape: {model(x).shape}')
+#             for param in model.parameters():
+#                 param.requires_grad = False
+#             self.outputs.append(model(x))
+#         logging.info(f'Shapes from MLP {[output.shape for output in self.outputs]}',)
+#         concatenated_output = torch.cat(self.outputs, dim=1)
+#         self.outputs=[]
+#         logging.info(f'Shape after concatenating {concatenated_output.shape}')
+#         return self.output(concatenated_output)
+
 
 def merged_models(dir_name,model:nn.Module,optimizer:torch.optim):
     BASE_DIR='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP/'
@@ -111,3 +133,5 @@ def merged_models(dir_name,model:nn.Module,optimizer:torch.optim):
     mmlp_model=Parallel_Concatenation_MLP(models_list=models,size=len(models),output_size=3)
     logging.info(f'Model architecture after concatenating {mmlp_model}')
     return mmlp_model,len(models)
+
+
