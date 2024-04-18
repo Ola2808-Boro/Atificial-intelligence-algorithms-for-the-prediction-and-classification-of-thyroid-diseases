@@ -64,7 +64,7 @@ def generate_dataset(data):
 
     xml_files=data['xml']['paths']
     img_files=data['img']['paths']
-    for xml_file in xml_files[:2]:
+    for xml_file in xml_files:
         patient_data={}
         #logging.info(xml_file)
         tree = ET.parse(xml_file)
@@ -102,42 +102,63 @@ def generate_dataset(data):
                 f.write(f'{json_object} \n')
 
 
+def removal_artefacts(img_path:str)->Image:
+    img=Image.open(fp=img_path)
+    print(f'Image size {img.size}')
+    (left, upper, right, lower) = (120, 8, 430, 320)
+    img_crop = img.crop((left, upper, right, lower))
+    img_crop.show()
+
+
+
 def create_masks(data_frame:pd.DataFrame):
 
     for idx in data_frame.index:
         images_path=data_frame['images_path'][idx]
         masks_path=data_frame['masks_path'][idx]
-        print(len(images_path))
-        for idx,img_path in enumerate(images_path):
-            print(img_path)
+        logging.info(f'Index {idx}')
+        for index,img_path in enumerate(images_path):
+            logging.info(img_path)
             for mask in data_frame['mark'][idx]:
                 regex=re.findall(r'_\d+',img_path)[0]
+                logging.info(f'Tag {mask}')
                 if mask[0]['num']==regex.replace('_',''):
                     print(f"img {img_path}, regex {regex}")
                     img=Image.open(img_path)
-                    draw = ImageDraw.Draw(img)
+                    img_size=img.size
+                    new_img=Image.new(mode='1',size=img_size)
+                    #new_img.show()
+                    draw = ImageDraw.Draw(new_img)
                     points=mask[0]['svg']
+                    logging.info(points)
                     x_coordinates=[int(itm) for itm in re.findall(r'"x":\s*(\d+)',points)]
                     y_coordinates=[int(itm) for itm in re.findall(r'"y":\s*(\d+)',points)]
                     coordinates=list(zip(x_coordinates,y_coordinates))
                     logging.info(f"Coordinates num :{mask[0]['num']} {coordinates}")
-                    draw.polygon(coordinates, fill=(255,255,255), outline=(255, 255, 255))
-                    img.save(masks_path[idx])
-                    img.show()
+                    draw.polygon(coordinates, fill='white',outline='white')
+                    #new_img.save(masks_path[idx])
+                    new_img.show()
+           
 
 
 def analyze_data(data_frame:pd.DataFrame):
-    print(f'Nan values in data frame {data_frame.isna().sum().sum()}')
+    logging.info(f'Nan values in data frame {data_frame.isna().sum().sum()}')
     for item in data.columns:
-        print(f'Number of Nan values in column {item} {data_frame[item].isna().sum().sum()}')
+        logging.info(f'Number of Nan values in column {item} {data_frame[item].isna().sum().sum()}')
+
+
 def load_data()->pd.DataFrame:
     df_read_json = pd.read_json('patient_data.json', lines=True)
-    print("DataFrame using pd.read_json() method:")
-    print(df_read_json)
+    logging.info("DataFrame using pd.read_json() method:")
+    logging.info(df_read_json)
     return df_read_json
 
 paths=[PATH_XML_FILES,PATH_IMAGES]
-#count_data(paths=paths)
-#generate_dataset(data)
+count_data(paths=paths)
+generate_dataset(data)
 df=load_data()
+logging.info(df['tirads'].value_counts())
+logging.info(df.info())
 create_masks(data_frame=df)
+# path='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/DDTI Thyroid Ultrasound Images/1_1.jpg'
+# removal_artefacts(path)
