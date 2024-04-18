@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 import torch
 from torch.utils.data import Dataset, DataLoader
 import seaborn as sns
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay,auc,RocCurveDisplay,classification_report
+from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay,auc,RocCurveDisplay,classification_report
 from torchmetrics.classification import Accuracy, Precision, F1Score, Recall,ROC
 from pathlib import Path
 from torch.optim.lr_scheduler import ExponentialLR
