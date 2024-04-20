@@ -8,7 +8,7 @@ import json
 from torch.optim.lr_scheduler import LambdaLR,StepLR,ConstantLR,LinearLR,ExponentialLR,ReduceLROnPlateau
 
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
-BASE_DIR='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP'
+
 
 
 class Sin(nn.Module):
@@ -126,8 +126,8 @@ def plot_correlation(df):
 
     plt.show()
         
-def save_model_weights(model:nn.Module,optimizer:torch.optim,epoch:int,loss:int,dir_name:str,model_name:str):
-    path_dir=create_experiments_dir(dir_name=dir_name)
+def save_model_weights(model:nn.Module,optimizer:torch.optim,epoch:int,loss:int,dir_name:str,model_name:str,BASE_DIR:str):
+    path_dir=create_experiments_dir(dir_name=dir_name,BASE_DIR=BASE_DIR)
     path=path_dir+'/'+model_name+'.pth'
     logging.info(f'Path to save model {path}, model {model_name}')
     for name, param in model.named_parameters():
@@ -139,7 +139,7 @@ def save_model_weights(model:nn.Module,optimizer:torch.optim,epoch:int,loss:int,
             'loss': loss,
             }, path)
 
-def plot_charts(train_result:dict, test_result:dict, model_name:str, dir_name:str):
+def plot_charts(train_result:dict, test_result:dict, model_name:str, dir_name:str,BASE_DIR:str):
     
     epoch=train_result['epoch']
     for idx,data in enumerate(train_result):
@@ -154,7 +154,7 @@ def plot_charts(train_result:dict, test_result:dict, model_name:str, dir_name:st
             plt.savefig(f'{path}/{model_name}_{train_result.keys()[idx]}.png')
     
 
-def save_results(train_result:dict, test_result:dict, model_name:str, dir_name:str):
+def save_results(train_result:dict, test_result:dict, model_name:str, dir_name:str,BASE_DIR:str):
     path=BASE_DIR+'/'+str(dir_name).replace("\\","/")
     train_data=json.dumps(train_result,indent=6)
     test_data=json.dumps(test_result,indent=6)
@@ -191,7 +191,7 @@ def load_model_weights(model:nn.Module,path:str,optimizer:torch.optim):
     
     return model,optimizer,epoch,loss
 
-def create_experiments_dir(dir_name:str):
+def create_experiments_dir(dir_name:str,BASE_DIR:str):
     
     path=BASE_DIR+'/'+str(dir_name).replace("\\","/")
     print('Path',path)

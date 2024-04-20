@@ -3,6 +3,7 @@ import datetime
 import logging
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 
+BASE_DIR='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP'
 #Project
 project_name="MLP"
 

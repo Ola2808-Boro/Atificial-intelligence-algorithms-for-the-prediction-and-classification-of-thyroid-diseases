@@ -4,7 +4,7 @@ from torch.utils.data import Dataset, DataLoader
 import torch
 from torch.nn import Linear, Sequential,CrossEntropyLoss,Tanh
 import glob
-from .utils import load_model_weights
+from utils import load_model_weights
 import logging
 
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
