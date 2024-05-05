@@ -3,6 +3,7 @@ import datetime
 import logging
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 
+BASE_DIR='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP'
 #Project
 project_name="MLP"
 
@@ -72,7 +73,8 @@ train_MLP(
     num_features=num_features,
     option=option,
     mmlp_option=mmlp_option,
-    dir_name=dir_name
+    dir_name=dir_name,
+    BASE_DIR=BASE_DIR
     )
 
 # wandb.finish()

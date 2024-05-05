@@ -5,17 +5,19 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay,auc,RocCurv
 import matplotlib.pyplot as plt
 import seaborn as sns
 from torchmetrics.classification import Accuracy, Precision, F1Score, Recall,ROC
-from .utils import save_model_weights, create_experiments_dir,plot_data_distribution,define_activation_function
+import sys
+sys.path.insert(1, 'C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP/scripts')
+from utils import save_results,save_model_weights, create_experiments_dir,plot_data_distribution,define_activation_function
 from torch.optim.lr_scheduler import ExponentialLR
-from .setup_data import read_csv_data,balancing_dataset,select_features,preprocessing_data,convert_to_tensors,create_dataset,create_dataloder
-from .model import merged_models,MLP
+from setup_data import read_csv_data,balancing_dataset,select_features,preprocessing_data,convert_to_tensors,create_dataset,create_dataloder
+from model import merged_models,MLP
 import pandas as pd
 import logging
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
 
-def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.optim.Optimizer,adaptive_lr:bool,scheduler,loss_fn:nn.Module,accuracy,precision, recall, f1_score,roc,device:torch.device,model_name:str):
+def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.optim.Optimizer,adaptive_lr:bool,scheduler,loss_fn:nn.Module,accuracy,precision, recall, f1_score,roc,device:torch.device,model_name:str,target_names:list):
     """
     Performs one training step on the model.
 
@@ -44,13 +46,13 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
     recall_avg=0
     f1_score_avg=0
     for batch,(x,y) in enumerate(dataloader):
-        #logging.info(f'Batch {batch} model {model}')
+        #print(type(x),type(y))
         x,y=x.to(torch.float32),y.to(torch.long)
         y_pred=model(x).squeeze()
         y = y.squeeze()
         y_pred_class=torch.softmax(y_pred, dim=1).argmax(dim=1)
         #print(f'Pred logits {y_pred[0][0]}')
-        #print(f'y:{y}, y_pred_logits: { y_pred}')
+        logging.info(f'y:{y}, y_pred: { y_pred_class}')
         logging.info(f'Shape y {y.shape},y_pred:{y_pred.shape}')
         #print(f'y_pred_class {y_pred_class} y_pred_class shape:{y_pred_class.shape}')
         #print(f'To loss_fn y_pred_logits {y_pred.shape} y: {y.shape}')
@@ -69,7 +71,7 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
         loss.backward()
         optimizer.step()
     if adaptive_lr:
-        if isinstance(scheduler,ReduceLROnPlateau(optimizer=optimizer))
+        #if isinstance(scheduler,ReduceLROnPlateau(optimizer=optimizer)):
         scheduler.step()
         #print(f'Acc: {acc} prec: {prec} recall {recall_result} f1_score_result {f1_score_result}')
     loss_avg=loss_avg/len(dataloader)
@@ -78,9 +80,8 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
     f1_score_avg=f1_score_avg/len(dataloader)
     recall_avg=recall_avg/len(dataloader)
     
-    
-    target_names = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning']
-    report=classification_report(y, y_pred_class, target_names=target_names)
+    #report=classification_report(y, y_pred_class, target_names=target_names)
+    report=classification_report(y, y_pred_class,output_dict=True )
     #report=classification_report(y, y_pred_class, target_names=target_names,output_dict=True)
     logging.info(f'Report {report}')
 #     wandb.log(report)
@@ -101,7 +102,7 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
     #print('aaa',loss_avg,acc_avg.item(),prec_avg.item(),f1_score_avg.item(),recall_avg.item())
     return loss_avg,acc_avg.item(),prec_avg.item(),f1_score_avg.item(),recall_avg.item()
 
-def test_step(model:nn.Module,epoch:int, dataloader:DataLoader,loss_fn:nn.Module,accuracy,precision, recall, f1_score,roc,device:torch.device,model_name:str):
+def test_step(model:nn.Module,epoch:int, dataloader:DataLoader,loss_fn:nn.Module,accuracy,precision, recall, f1_score,roc,device:torch.device,model_name:str,target_names:list):
     """
         Performs one testing step on the model.
 
@@ -160,17 +161,18 @@ def test_step(model:nn.Module,epoch:int, dataloader:DataLoader,loss_fn:nn.Module
 #         display.plot()
 #         plt.show()
        
-        target_names = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning']
-        logging.info(classification_report(y, y_pred_class, target_names=target_names))
+
+        logging.info(classification_report(y, y_pred_class, output_dict=True))
+        #logging.info(classification_report(y, y_pred_class, target_names=target_names))
         #print(classification_report(y, y_pred_class, target_names=target_names,output_dict=True))
-        cm=confusion_matrix(y,y_pred_class)
-        cm_df = pd.DataFrame(cm,
-                     index = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning'], 
-                     columns = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning'])
-        sns.heatmap(cm_df, annot=True)
-        plt.title('Confusion Matrix - test')
-        plt.ylabel('Actal Values')
-        plt.xlabel('Predicted Values')
+        # cm=confusion_matrix(y,y_pred_class)
+        # cm_df = pd.DataFrame(cm,
+        #              index = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning'], 
+        #              columns = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning'])
+        # sns.heatmap(cm_df, annot=True)
+        # plt.title('Confusion Matrix - test')
+        # plt.ylabel('Actal Values')
+        # plt.xlabel('Predicted Values')
 #         wandb.log({f"conf_mat_{epoch}" : wandb.plot.confusion_matrix(
 #                         y_true=y, preds=y_pred_class,
 #                         class_names=target_names)})
@@ -193,6 +195,9 @@ def train(model:nn.Module,
           adaptive_lr:bool,
           model_name:str,
           dir_name:str,
+          class_num:int,
+          target_name:list,
+          BASE_DIR:str
          ):
     """
     Trains the model.
@@ -210,11 +215,11 @@ def train(model:nn.Module,
         Tuple: A tuple containing dictionaries with training and testing results.
     """
     loss_fn = nn.CrossEntropyLoss()
-    accuracy=Accuracy(task="multiclass", num_classes=3,average='weighted')
-    precision= Precision(task="multiclass", num_classes=3,average='weighted')
-    f1_score=F1Score(task="multiclass", num_classes=3,average='weighted')
-    recall=Recall(task="multiclass", num_classes=3,average='weighted')
-    roc = ROC(task="multiclass", num_classes=3)
+    accuracy=Accuracy(task="multiclass", num_classes=class_num,average='weighted')
+    precision= Precision(task="multiclass", num_classes=class_num,average='weighted')
+    f1_score=F1Score(task="multiclass", num_classes=class_num,average='weighted')
+    recall=Recall(task="multiclass", num_classes=class_num,average='weighted')
+    roc = ROC(task="multiclass", num_classes=class_num)
     if adaptive_lr:
         scheduler = ExponentialLR(optimizer, gamma=0.9)
     device='cuda' if torch.cuda.is_available() else 'cpu'
@@ -252,7 +257,9 @@ def train(model:nn.Module,
                                                                                       adaptive_lr=adaptive_lr,
                                                                                       scheduler=scheduler, 
                                                                                       device=device,
-                                                                                      model_name=model_name)
+                                                                                      model_name=model_name,
+                                                                                      target_names=target_name
+                                                                                      )
         logging.info(
             f"Epoch: {epoch+1} | "
             f"train_loss: {train_loss:.4f} | "
@@ -278,7 +285,9 @@ def train(model:nn.Module,
                                                                           f1_score=f1_score,
                                                                           roc=roc, 
                                                                           device=device,
-                                                                          model_name=model_name)
+                                                                          model_name=model_name,
+                                                                          target_names=target_name
+                                                                          )
 
     logging.info(f"test_loss: {test_loss:.4f} test_acc: {test_acc:.4f}, test_prec: {test_precision:.4f}, test_f1_score: {test_f1_score:.4f} test_recall: {test_recall:.4f}")
     result_test['test_loss']=round(test_loss,5)
@@ -289,7 +298,7 @@ def train(model:nn.Module,
     
     for name, param in model.named_parameters():
             logging.info(f'Name layer default pass to save {name}')
-    save_model_weights(model=model,optimizer=optimizer,epoch=epoch,loss=test_loss,dir_name=dir_name,model_name=model_name)
+    save_model_weights(model=model,optimizer=optimizer,epoch=epoch,loss=test_loss,dir_name=dir_name,model_name=model_name,BASE_DIR=BASE_DIR)
     
     return result_train,result_test
 
@@ -327,11 +336,12 @@ def train_MLP(
     num_features:int,
     option:str,
     mmlp_option:dict,
-    dir_name:str
+    dir_name:str,
+    BASE_DIR:str
     ):
     
-    
-    create_experiments_dir(dir_name)
+    target_names = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning']
+    path_experiments=create_experiments_dir(dir_name,BASE_DIR)
     activation_function=define_activation_function(activation_function=activation_function)
     models_list=[]
     optimizer=''
@@ -387,9 +397,16 @@ def train_MLP(
             optimizer=optimizer,
             adaptive_lr=adaptive_lr,
             model_name=f'MLP_{str(idx+1)}',
-            dir_name=dir_name
+            dir_name=dir_name,
+            class_num=output_size,
+            target_name=target_names,
+            BASE_DIR=BASE_DIR
         )
-    
+        save_results(train_result=result_train,
+                 test_result=result_test,
+                 model_name=f'MLP_{str(idx+1)}',
+                 path=path_experiments
+                 )
     logging.info(f'End base option of training')
     if mmlp_option['concatenation_option'].lower()=='parallel':
         merged_model,MLP_num=merged_models(dir_name=dir_name,model= MLP(input_size,hidden_units,hidden_size,output_size,activation_function,remove_output_layer=False),optimizer=optimizer)
@@ -404,5 +421,13 @@ def train_MLP(
             optimizer=optimizer,
             adaptive_lr=adaptive_lr,
             model_name=f'MLP_merged',
-            dir_name=dir_name
+            dir_name=dir_name,
+            class_num=output_size,
+            target_name=target_names,
+            BASE_DIR=BASE_DIR
         )
+        save_results(train_result=result_train,
+                 test_result=result_test,
+                 model_name=f'MLP_merged',
+                 path=path_experiments
+                 )
