@@ -154,8 +154,8 @@ def plot_charts(train_result:dict, test_result:dict, model_name:str, dir_name:st
             plt.savefig(f'{path}/{model_name}_{train_result.keys()[idx]}.png')
     
 
-def save_results(train_result:dict, test_result:dict, model_name:str, dir_name:str,BASE_DIR:str):
-    path=BASE_DIR+'/'+str(dir_name).replace("\\","/")
+def save_results(train_result:dict, test_result:dict, model_name:str, path:str):
+    logging.info(f'Path to save results {path}')
     train_data=json.dumps(train_result,indent=6)
     test_data=json.dumps(test_result,indent=6)
     data=[{
@@ -166,8 +166,11 @@ def save_results(train_result:dict, test_result:dict, model_name:str, dir_name:s
         'name':'test',
         'data':test_data
     }]
+    logging.info(f'Results train: {train_data}')
+    logging.info(f'Results test: {test_data}')
+
     for itm in data:
-        with open(f"f'{path}/{model_name}_{itm['name']}", "w") as file:
+        with open(f"{path}/{model_name}_{itm['name']}.json", "w") as file:
             file.write(itm['data'])
 
 

@@ -15,7 +15,7 @@ from torchvision.transforms.functional import pil_to_tensor
 from torch.utils.data import DataLoader,random_split
 from torchvision.transforms import Compose,ToTensor,Resize,Normalize
 
-logging.basicConfig(level=logging.INFO,filename='data_setup.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO,filename='trained_models.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 PATH_XML_FILES='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/DDTI Thyroid Ultrasound Images/*.xml'
 PATH_IMAGES='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/DDTI Thyroid Ultrasound Images/*.jpg'
 
@@ -217,7 +217,8 @@ def setup_data(BATCH_SIZE:int)->list[DataLoader]:
     return  train_dataloader,test_dataloader
 
 
-# df=load_data()
+df=load_data()
+print(df['tirads'].value_counts())
 # dataset=create_dataset(df)
 # print(dataset.__getitem__(0))
 # print(type(dataset))

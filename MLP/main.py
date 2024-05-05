@@ -73,7 +73,8 @@ train_MLP(
     num_features=num_features,
     option=option,
     mmlp_option=mmlp_option,
-    dir_name=dir_name
+    dir_name=dir_name,
+    BASE_DIR=BASE_DIR
     )
 
 # wandb.finish()

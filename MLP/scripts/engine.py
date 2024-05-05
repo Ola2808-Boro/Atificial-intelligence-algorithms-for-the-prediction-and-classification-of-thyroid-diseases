@@ -7,7 +7,7 @@ import seaborn as sns
 from torchmetrics.classification import Accuracy, Precision, F1Score, Recall,ROC
 import sys
 sys.path.insert(1, 'C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/MLP/scripts')
-from utils import save_model_weights, create_experiments_dir,plot_data_distribution,define_activation_function
+from utils import save_results,save_model_weights, create_experiments_dir,plot_data_distribution,define_activation_function
 from torch.optim.lr_scheduler import ExponentialLR
 from setup_data import read_csv_data,balancing_dataset,select_features,preprocessing_data,convert_to_tensors,create_dataset,create_dataloder
 from model import merged_models,MLP
@@ -52,7 +52,7 @@ def train_step(model:nn.Module,epoch:int, dataloader:DataLoader,optimizer:torch.
         y = y.squeeze()
         y_pred_class=torch.softmax(y_pred, dim=1).argmax(dim=1)
         #print(f'Pred logits {y_pred[0][0]}')
-        #print(f'y:{y}, y_pred_logits: { y_pred}')
+        logging.info(f'y:{y}, y_pred: { y_pred_class}')
         logging.info(f'Shape y {y.shape},y_pred:{y_pred.shape}')
         #print(f'y_pred_class {y_pred_class} y_pred_class shape:{y_pred_class.shape}')
         #print(f'To loss_fn y_pred_logits {y_pred.shape} y: {y.shape}')
@@ -196,7 +196,8 @@ def train(model:nn.Module,
           model_name:str,
           dir_name:str,
           class_num:int,
-          target_name:list
+          target_name:list,
+          BASE_DIR:str
          ):
     """
     Trains the model.
@@ -340,7 +341,7 @@ def train_MLP(
     ):
     
     target_names = ['normal (not hypothyroid)','hyperfunction',' subnormal functioning']
-    create_experiments_dir(dir_name,BASE_DIR)
+    path_experiments=create_experiments_dir(dir_name,BASE_DIR)
     activation_function=define_activation_function(activation_function=activation_function)
     models_list=[]
     optimizer=''
@@ -398,9 +399,14 @@ def train_MLP(
             model_name=f'MLP_{str(idx+1)}',
             dir_name=dir_name,
             class_num=output_size,
-            target_name=target_names
+            target_name=target_names,
+            BASE_DIR=BASE_DIR
         )
-    
+        save_results(train_result=result_train,
+                 test_result=result_test,
+                 model_name=f'MLP_{str(idx+1)}',
+                 path=path_experiments
+                 )
     logging.info(f'End base option of training')
     if mmlp_option['concatenation_option'].lower()=='parallel':
         merged_model,MLP_num=merged_models(dir_name=dir_name,model= MLP(input_size,hidden_units,hidden_size,output_size,activation_function,remove_output_layer=False),optimizer=optimizer)
@@ -417,5 +423,11 @@ def train_MLP(
             model_name=f'MLP_merged',
             dir_name=dir_name,
             class_num=output_size,
-            target_name=target_names
+            target_name=target_names,
+            BASE_DIR=BASE_DIR
         )
+        save_results(train_result=result_train,
+                 test_result=result_test,
+                 model_name=f'MLP_merged',
+                 path=path_experiments
+                 )
