@@ -14,11 +14,24 @@ from torch.utils.data import Dataset, DataLoader,Subset
 from torchvision.transforms.functional import pil_to_tensor
 from torch.utils.data import DataLoader,random_split
 from torchvision.transforms import Compose,ToTensor,Resize,Normalize
+from skimage.io import imread, imsave
+from pydicom import dcmread,multival
+from pydicom.data import get_testdata_file
+import matplotlib.pyplot as plt
+import time
+from pathlib import Path
+from scipy.ndimage import convolve
+from pydicom import dcmread
+import sys
+import cv2
+from Criminisi_algorithm import CriminisiAlgorithm
+from skimage.measure import label
 
+BASE_DIR_DATBASE='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/'
 logging.basicConfig(level=logging.INFO,filename='trained_models.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
-PATH_XML_FILES='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/DDTI Thyroid Ultrasound Images/*.xml'
-PATH_IMAGES='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/DDTI Thyroid Ultrasound Images/*.jpg'
-
+PATH_XML_FILES=f'{BASE_DIR_DATBASE}DDTI Thyroid Ultrasound Images/*.xml'
+PATH_IMAGES=f'{BASE_DIR_DATBASE}DDTI Thyroid Ultrasound Images/*.jpg'
+PATH_DICOM_IMAGES=f'{BASE_DIR_DATBASE}GUMED'
 class DDTIThyroidUltrasoundImagesDataset(Dataset):
     def __init__(self, X, y,transform):
         self.X = X
@@ -50,23 +63,23 @@ data={
     }
 }
 
-# patient_data={
-#     'number':0,
-#     'age':0,
-#     'sex':0,
-#     'composition':0,
-#     'echogenicity':0,
-#     'margins':0,
-#     'calcifications':0,
-#     'tirads':0,
-#     'reportbacaf':0,
-#     'reporteco':0,
-#     'mark':[],
-#     'images_path':[],
-#     'masks_path':[],
+def read_data():
+
+    dicom_files=[path.replace('\\','/')  for path in glob.glob(f'{PATH_DICOM_IMAGES}/*') if '.csv' not in path and '.jpg' not in path and '.png' not in path and '.jpeg' not in path]
+    dicom_files+=[path.replace('\\','/') for path in glob.glob(f'{PATH_DICOM_IMAGES}/*/*') if  '.csv' not in path and '.jpg' not in path and '.png' not in path and '.jpeg' not in path]
+    dicom_attributes=set()
+    meta_data=[]
+    for path in dicom_files:
+        if not Path(path).is_dir():
+            dicom = dcmread(path)
+            dicom_attributes.update(dicom.dir())
+    dicom_attributes = list(dicom_attributes)
+    dicom_attributes.remove('PixelData')
+    dicom_attributes.remove('PatientName')
+    print(dicom_attributes)
     
-    
-# }
+
+
 def count_data(paths:str|list[str])->dict:
     for path in paths:
         files_path=glob.glob(path)
@@ -216,9 +229,125 @@ def setup_data(BATCH_SIZE:int)->list[DataLoader]:
     train_dataloader,test_dataloader=create_dataloaders(train_set=train_set,test_set=test_set,BATCH_SIZE=BATCH_SIZE)
     return  train_dataloader,test_dataloader
 
+def plot_img_hist(img_path:str):
+    dicom = dcmread(img_path)
+    print(type(dicom))
+    # img = plt.imread(img_path)
+    plt.hist(dicom.pixel_array.ravel(),256,[0,256]) 
+    plt.show() 
 
-df=load_data()
-print(df['tirads'].value_counts())
+def component_analysis(img_path,edges):
+    print(type(edges))
+    print('Edges 2',edges.astype('uint8').shape)
+    labeled_vol, num_features = label(edges, connectivity=1, return_num=True)
+    labeled_vol[labeled_vol>1]=1
+    #print(np.unique(edges.astype('int8')))
+    #ret0, labelss0 = cv2.connectedComponents(edges.astype('uint8'))
+    #labelss0[labelss0[labelss0>1]]=1
+    #print(labelss0[labelss0>1])
+    #print(np.unique(edges.astype('int8')))
+    #ret1, labelss1 = cv2.connectedComponents(edges[:,:,1].astype('uint8'))
+    #ret2, labelss2= cv2.connectedComponents(edges[:,:,2].astype('uint8'))
+    #print(ret0,labelss0)
+    #print(ret1,labelss1)
+    #print(ret2,labelss2)
+    plot_image(img_path,labeled_vol,title=['Original image','Component analysis'])
+    return labeled_vol
+    #plot_image(img_path,labelss1,title=['Original image','Component analysis'])
+    #plot_image(img_path,labelss2,title=['Original image','Component analysis'])
+    #return [labelss0,labelss1,labelss2]
+ 
+
+def plot_image(img_path:str,img_array:np.array,title:list[str]):
+
+    plt.figure(figsize=(10, 5))
+    # Original Image
+    plt.subplot(1, 2, 1)
+    #Display the original image using matplotlib
+    plt.imshow(dcmread(img_path).pixel_array[300:768-300,200:1024-600,:],cmap=plt.cm.bone)
+    plt.title(title[0])
+    plt.axis('off')
+
+    # Edge-detected Image
+    plt.subplot(1, 2, 2)
+    #Display the edge-detected image using matplotlib with a grayscale color map.
+    plt.imshow(img_array, plt.cm.bone)
+    plt.title(title[1])
+    plt.axis('off')
+
+    # Show the plot containing both images.
+    plt.show()
+
+def edge_connection_algorithm(img_path:str):
+    #plot_img_hist(img_path=img_path)
+    #1. read grayscale image
+    image = dcmread(img_path).pixel_array
+    #image=cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
+    #cv2.imwrite(img_path+'.png',image.pixel_array)
+    #image=cv2.imread(img_path+'.png', cv2.IMREAD_GRAYSCALE)
+    masks=[]
+    #2. apply to kernels to calculate horizontal and vertical gradient
+    gx = np.array([[1, 0], [0, -1]])
+    gy = np.array([[0, 1], [-1, 0]])
+    #gx = np.array([[[1, 0], [0, -1]],[[1, 0], [0, -1]],[[1, 0], [0, -1]]])
+    #gy = np.array([[[0, 1], [-1, 0]],[[0, 1], [-1, 0]],[[0, 1], [-1, 0]]])
+    print(image.shape)
+    print('x',gx.shape,gx)
+    print('y',gy.shape,gy)
+    for channel in range(3):
+        croped_img=image[300:768-300,200:1024-600,channel].copy()
+        print(f'croped_img shape {croped_img.shape}')
+        gradient_x = convolve(croped_img, gx)
+        gradient_y = convolve(croped_img, gy)
+        #3. compute the magnitude 
+        print(gradient_x.shape, gradient_x)
+        print(gradient_y.shape, gradient_y)
+        magnitude=np.sqrt(pow(gradient_x,2)+pow(gradient_y,2))
+        print('Magnitude',magnitude)
+        logging.info(f'Magnitude: {magnitude}')
+        threshold=5
+        #ret, edges = cv2.threshold(croped_img, int(threshold), 255, cv2.THRESH_BINARY)
+        edges = np.where(magnitude > threshold,1,0)
+        logging.info(edges)
+        print('Edges 1',edges.shape)
+        #plt.hist(croped_img.ravel(),256,[0,256]) 
+        #plt.show()
+        plot_image(img_path=img_path,img_array=edges,title=['Original image','Edge-detected Image'])
+        mask=component_analysis(img_path=img_path,edges=edges)
+        masks.append(mask)
+    mask_f=np.array(masks[1]+masks[2])
+    plt.imshow(mask_f)
+    plt.show()
+    return mask_f,image[300:768-300,200:1024-600,:]
+    # for channel in range(3):
+    #     print(image.shape)
+    #     print('x',gx.shape,gx)
+    #     print('y',gy.shape,gy)
+    #     croped_img=image[300:768-300,200:1024-600].copy()
+    #     print(f'croped_img shape {croped_img.shape}')
+    #     gradient_x = convolve(croped_img, gx)
+    #     gradient_y = convolve(croped_img, gy)
+    #     #3. compute the magnitude 
+    #     print(gradient_x.shape, gradient_x)
+    #     print(gradient_y.shape, gradient_y)
+    #     magnitude=np.sqrt(pow(gradient_x,2)+pow(gradient_y,2))
+    #     print('Magnitude',magnitude)
+    #     logging.info(f'Magnitude: {magnitude}')
+    #     threshold=5
+    #     #ret, edges = cv2.threshold(croped_img, int(threshold), 255, cv2.THRESH_BINARY)
+    #     edges = np.where(magnitude > threshold,magnitude,0)
+    #     logging.info(edges)
+    #     print('Edges 1',edges.shape)
+    #     #plt.hist(croped_img.ravel(),256,[0,256]) 
+    #     #plt.show()
+    #     plot_image(img_path=img_path,img_array=edges,title=['Original image','Edge-detected Image'])
+    #     mask=component_analysis(img_path=img_path,edges=edges)
+    #     masks.append(mask)
+    #return masks,image.pixel_array[300:768-300,200:1024-600,:]
+
+
+# df=load_data()
+# print(df['tirads'].value_counts())
 # dataset=create_dataset(df)
 # print(dataset.__getitem__(0))
 # print(type(dataset))
@@ -236,5 +365,19 @@ print(df['tirads'].value_counts())
 # print(dataset[0].__len__())
 # logging.info(df.info())
 #create_masks(data_frame=df)
-# path='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/DDTI Thyroid Ultrasound Images/1_1.jpg'
-# removal_artefacts(path)
+
+BASE_DIR_DATBASE='C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/databases/'
+PATH_DICOM_IMAGES=f'{BASE_DIR_DATBASE}GUMED/58BA9974'
+edges,images=edge_connection_algorithm(PATH_DICOM_IMAGES)
+# plt.imshow(edges[1],cmap='gray')
+# plt.show()
+# print(edges[1].shape)
+# print(edges)
+#print(edges[1].shape,images.shape)
+logging.info(edges)
+Image.fromarray(CriminisiAlgorithm(img=images,mask=edges,patch_size=9,plot_progress=True).inpaint()).save('test.png', quality=100)
+#img=np.asarray(Image.open('C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/Deep Neural Networks/scripts/test.png'))
+#Image.fromarray(CriminisiAlgorithm(img=img,mask=edges[2],patch_size=9,plot_progress=True).inpaint()).save('test2.png', quality=100)
+#img=np.asarray(Image.open('C:/Users/olkab/Desktop/Magisterka/Atificial-intelligence-algorithms-for-the-prediction-and-classification-of-thyroid-diseases/Deep Neural Networks/scripts/test2.png'))
+# Image.fromarray(CriminisiAlgorithm(img=images,mask=edges[0],patch_size=9,plot_progress=True).inpaint()).save('test3.png', quality=100)
+#TODO na kazdym kanale osobno liczyc gradient, pozniej magnieture i pozniej connectedComponent

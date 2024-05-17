@@ -1,0 +1,1049 @@
+,PerformedProcedureStepStartDate,SpecificCharacterSet,InstitutionName,SoftwareVersions,PixelRepresentation,BitsAllocated,PerformedProcedureStepID,PhotometricInterpretation,PatientSex,RequestingPhysician,PatientBirthDate,ImageType,SeriesNumber,ContentDate,SequenceOfUltrasoundRegions,SamplesPerPixel,SeriesDate,TransducerData,DepthOfScanField,StationName,RequestedProcedureDescription,SeriesInstanceUID,MedicalAlerts,StudyDate,StudyInstanceUID,SOPClassUID,PatientID,PlanarConfiguration,UltrasoundColorDataPresent,Modality,ProtocolName,AccessionNumber,PerformedProtocolCodeSequence,InstanceNumber,SeriesTime,Manufacturer,Columns,ProcedureCodeSequence,BurnedInAnnotation,ManufacturerModelName,LossyImageCompression,ReferringPhysicianName,BitsStored,RequestAttributesSequence,PatientIdentityRemoved,SpecialNeeds,TransducerType,Allergies,StudyTime,Rows,PerformedProcedureStepStartTime,StudyID,ContentTime,SOPInstanceUID,HighBit
+0,20231127,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,YBR_FULL_422,F,,19940208,"['DERIVED', 'PRIMARY', '', '0011']",1,20231127,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 2
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 50
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.006076388992369175
+(0018, 602e) Physical Delta Y                    FD: 0.006076388992369175
+(0018, 6030) Transducer Frequency                UL: 7500
+(0018, 6032) Pulse Repetition Frequency          UL: 19531
+(0018, 6036) Steering Angle                      FD: 0.0
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 569
+(0019, 101a) Private tag data                    SL: 50
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '78.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3254919168(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 2
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 50
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.006076388992369175
+(0018, 602e) Physical Delta Y                    FD: 0.006076388992369175
+(0018, 6030) Transducer Frequency                UL: 6315
+(0018, 6032) Pulse Repetition Frequency          UL: 16447
+(0018, 6036) Steering Angle                      FD: 0.0
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 569
+(0019, 101a) Private tag data                    SL: 50
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '78.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263332368]",3,20231127,"['Thy./SMP', '', '']",31,ARIETTA750,ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi,1.2.392.200036.9123.100.50.127111802200012231127093456000852233,,20231127,1.2.826.0.1.3680043.2.1041.56.113421216,1.2.840.10008.5.1.4.1.1.6.1,2423459,0,1.0,US,MSK.LN GP,CN113421216,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",7,093456,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,01,SLEDZINSKI^MACIEJ,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg3'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '113421216'
+(0040, 1001) Requested Procedure ID              SH: 'CN113421216']",NO,,LINEAR,,093456,768,093456,CN113421216,095743,1.2.392.200036.9123.100.50.127111802200010231127095746214663441,7
+1,20231127,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,YBR_FULL_422,F,,19790926,"['DERIVED', 'PRIMARY', '', '0011']",1,20231127,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 2
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 302
+(0018, 6022) Reference Pixel Y0                  SL: 35
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0086805559694767
+(0018, 602e) Physical Delta Y                    FD: 0.0086805559694767
+(0018, 6030) Transducer Frequency                UL: 7500
+(0018, 6032) Pulse Repetition Frequency          UL: 17857
+(0018, 6036) Steering Angle                      FD: 0.0
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 521
+(0019, 101a) Private tag data                    SL: 35
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '79.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3254919168(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 2
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 210
+(0018, 6022) Reference Pixel Y0                  SL: 35
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0086805559694767
+(0018, 602e) Physical Delta Y                    FD: 0.0086805559694767
+(0018, 6030) Transducer Frequency                UL: 6315
+(0018, 6032) Pulse Repetition Frequency          UL: 16447
+(0018, 6036) Steering Angle                      FD: 0.0
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 429
+(0019, 101a) Private tag data                    SL: 35
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '77.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263332368]",3,20231127,"['Thy./SMP', '', '']",46,ARIETTA750,ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi,1.2.392.200036.9123.100.50.127111802200012231127101641000251850,,20231127,1.2.826.0.1.3680043.2.1041.56.113405536,1.2.840.10008.5.1.4.1.1.6.1,2416438,0,1.0,US,MSK.LN GP,CN113405536,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",5,101641,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,01,SLEDZINSKI^MACIEJ,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg3'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '113405536'
+(0040, 1001) Requested Procedure ID              SH: 'CN113405536']",NO,,LINEAR,,101641,768,101641,CN113405536,102826,1.2.392.200036.9123.100.50.127111802200010231127102829377633655,7
+2,20231127,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,YBR_FULL_422,F,,19790926,"['DERIVED', 'PRIMARY', '', '0001']",1,20231127,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 36
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0086805559694767
+(0018, 602e) Physical Delta Y                    FD: 0.0086805559694767
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 475
+(0019, 101a) Private tag data                    SL: 35
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '77.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 36
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0086805559694767
+(0018, 602e) Physical Delta Y                    FD: 0.0086805559694767
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 475
+(0019, 101a) Private tag data                    SL: 35
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '77.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20231127,"['Thy./SMP', '', '']",46,ARIETTA750,ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi,1.2.392.200036.9123.100.50.127111802200012231127101641000251850,,20231127,1.2.826.0.1.3680043.2.1041.56.113405536,1.2.840.10008.5.1.4.1.1.6.1,2416438,0,,US,MSK.LN GP,CN113405536,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",4,101641,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,01,SLEDZINSKI^MACIEJ,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg3'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '113405536'
+(0040, 1001) Requested Procedure ID              SH: 'CN113405536']",NO,,LINEAR,,101641,768,101641,CN113405536,102741,1.2.392.200036.9123.100.50.127111802200010231127102755911436754,7
+3,20231127,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,YBR_FULL_422,F,,19940208,"['DERIVED', 'PRIMARY', '', '0001']",1,20231127,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 50
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.006076388992369175
+(0018, 602e) Physical Delta Y                    FD: 0.006076388992369175
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 569
+(0019, 101a) Private tag data                    SL: 50
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '78.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 50
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.006076388992369175
+(0018, 602e) Physical Delta Y                    FD: 0.006076388992369175
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 569
+(0019, 101a) Private tag data                    SL: 50
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '78.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263301632]",3,20231127,"['Thy./SMP', '', '']",31,ARIETTA750,ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi,1.2.392.200036.9123.100.50.127111802200012231127093456000852233,,20231127,1.2.826.0.1.3680043.2.1041.56.113421216,1.2.840.10008.5.1.4.1.1.6.1,2423459,0,,US,MSK.LN GP,CN113421216,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",8,093456,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,01,SLEDZINSKI^MACIEJ,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg3'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '113421216'
+(0040, 1001) Requested Procedure ID              SH: 'CN113421216']",NO,,LINEAR,,093456,768,093456,CN113421216,095906,1.2.392.200036.9123.100.50.127111802200010231127095943944949742,7
+4,20231127,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,YBR_FULL_422,F,,19790926,"['DERIVED', 'PRIMARY', '', '0001']",1,20231127,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 35
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0086805559694767
+(0018, 602e) Physical Delta Y                    FD: 0.0086805559694767
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 475
+(0019, 101a) Private tag data                    SL: 35
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '79.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 35
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0086805559694767
+(0018, 602e) Physical Delta Y                    FD: 0.0086805559694767
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 475
+(0019, 101a) Private tag data                    SL: 35
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '79.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263301632]",3,20231127,"['Thy./SMP', '', '']",46,ARIETTA750,ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi,1.2.392.200036.9123.100.50.127111802200012231127101641000251850,,20231127,1.2.826.0.1.3680043.2.1041.56.113405536,1.2.840.10008.5.1.4.1.1.6.1,2416438,0,,US,MSK.LN GP,CN113405536,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",6,101641,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,01,SLEDZINSKI^MACIEJ,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg3'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '113405536'
+(0040, 1001) Requested Procedure ID              SH: 'CN113405536']",NO,,LINEAR,,101641,768,101641,CN113405536,102931,1.2.392.200036.9123.100.50.127111802200010231127102944736933156,7
+5,20231127,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,YBR_FULL_422,F,,19940208,"['DERIVED', 'PRIMARY', '', '0001']",1,20231127,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 50
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.006076388992369175
+(0018, 602e) Physical Delta Y                    FD: 0.006076388992369175
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 569
+(0019, 101a) Private tag data                    SL: 50
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '78.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 50
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.006076388992369175
+(0018, 602e) Physical Delta Y                    FD: 0.006076388992369175
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 569
+(0019, 101a) Private tag data                    SL: 50
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '80.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20231127,"['Thy./SMP', '', '']",31,ARIETTA750,ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi,1.2.392.200036.9123.100.50.127111802200012231127093456000852233,,20231127,1.2.826.0.1.3680043.2.1041.56.113421216,1.2.840.10008.5.1.4.1.1.6.1,2423459,0,,US,MSK.LN GP,CN113421216,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",6,093456,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg3'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,01,SLEDZINSKI^MACIEJ,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Badanie wezlow chlonnych szyi'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg3'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '113421216'
+(0040, 1001) Requested Procedure ID              SH: 'CN113421216']",NO,,LINEAR,,093456,768,093456,CN113421216,095644,1.2.392.200036.9123.100.50.127111802200010231127095700024164940,7
+6,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 40
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 578
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 40
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 578
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20240229,"['Thy/Breas', '', '']",41,ARIETTA750,ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG,1.2.392.200036.9123.100.50.127111802200012240229101454000422551,,20240229,1.2.826.0.1.3680043.2.1041.56.108224238,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224238,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",3,101454,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg2'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224238'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224238']",NO,,LINEAR,,101454,768,101454,CN108224238,101714,1.2.392.200036.9123.100.50.127111802200010240229101734065738954,7
+7,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 40
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 578
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 40
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 578
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263301632]",3,20240229,"['Thy/Breas', '', '']",41,ARIETTA750,ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG,1.2.392.200036.9123.100.50.127111802200012240229101454000422551,,20240229,1.2.826.0.1.3680043.2.1041.56.108224238,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224238,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",5,101454,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg2'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224238'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224238']",NO,,LINEAR,,101454,768,101454,CN108224238,101921,1.2.392.200036.9123.100.50.127111802200010240229101929156983756,7
+8,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 276
+(0018, 6022) Reference Pixel Y0                  SL: 39
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 519
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 236
+(0018, 6022) Reference Pixel Y0                  SL: 39
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 10000
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 479
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20240229,"['Thy./SMP', '', '']",41,ARIETTA750,ENDOKRYNOLOGIA - USG Tarczycy,1.2.392.200036.9123.100.50.127111802200012240229100753000465248,,20240229,1.2.826.0.1.3680043.2.1041.56.108224234,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224234,"[(0008, 0100) Code Value                          SH: 'enusg1'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",1,100753,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg1'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - USG Tarczycy'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - USG Tarczycy'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg1'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224234'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224234']",NO,,LINEAR,,100753,768,100753,CN108224234,101121,1.2.392.200036.9123.100.50.127111802200010240229101146376094849,7
+9,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 39
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 7500
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 499
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '65.0'
+(0019, 1054) Private tag data                    DS: '82.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 39
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 7500
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 499
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '65.0'
+(0019, 1054) Private tag data                    DS: '82.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1060) Private tag data                    US: 8
+(0019, 1061) Private tag data                    UL: 3263301632]",3,20240229,"['Thy./SMP', '', '']",41,ARIETTA750,ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG,1.2.392.200036.9123.100.50.127111802200012240229101454000422551,,20240229,1.2.826.0.1.3680043.2.1041.56.108224238,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224238,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",7,101454,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg2'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224238'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224238']",NO,,LINEAR,,101454,768,101454,CN108224238,102237,1.2.392.200036.9123.100.50.127111802200010240229102426710528158,7
+10,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 39
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 578
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 23
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.013888888992369175
+(0018, 602e) Physical Delta Y                    FD: 0.013888888992369175
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7142
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 437
+(0019, 101a) Private tag data                    SL: 22
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20240229,"['Thy/Breas', '', '']",76,ARIETTA750,ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG,1.2.392.200036.9123.100.50.127111802200012240229101454000422551,,20240229,1.2.826.0.1.3680043.2.1041.56.108224238,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224238,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",1,101454,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg2'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224238'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224238']",NO,,LINEAR,,101454,768,101454,CN108224238,101553,1.2.392.200036.9123.100.50.127111802200010240229101611630144852,7
+11,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 40
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 578
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 40
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 578
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20240229,"['Thy/Breas', '', '']",41,ARIETTA750,ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG,1.2.392.200036.9123.100.50.127111802200012240229101454000422551,,20240229,1.2.826.0.1.3680043.2.1041.56.108224238,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224238,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",4,101454,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg2'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224238'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224238']",NO,,LINEAR,,101454,768,101454,CN108224238,101829,1.2.392.200036.9123.100.50.127111802200010240229101842023826055,7
+12,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 23
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.013888888992369175
+(0018, 602e) Physical Delta Y                    FD: 0.013888888992369175
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7142
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 437
+(0019, 101a) Private tag data                    SL: 22
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 256
+(0018, 6022) Reference Pixel Y0                  SL: 30
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.010416666977107525
+(0018, 602e) Physical Delta Y                    FD: 0.010416666977107525
+(0018, 6030) Transducer Frequency                UL: 4285
+(0018, 6032) Pulse Repetition Frequency          UL: 7936
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 498
+(0019, 101a) Private tag data                    SL: 29
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '69.0'
+(0019, 1054) Private tag data                    DS: '90.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20240229,"['Thy/Breas', '', '']",76,ARIETTA750,ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG,1.2.392.200036.9123.100.50.127111802200012240229101454000422551,,20240229,1.2.826.0.1.3680043.2.1041.56.108224238,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224238,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",2,101454,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg2'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224238'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224238']",NO,,LINEAR,,101454,768,101454,CN108224238,101626,1.2.392.200036.9123.100.50.127111802200010240229101641550317953,7
+13,20240229,ISO_IR 100,UCK Endokrynologia,"['00-2.2.3', 'Prism.L_DICOMLib Ver04.00.00[20200530]']",0,8,1,RGB,F,,19780220,"['ORIGINAL', 'PRIMARY', '', '0001']",1,20240229,"[(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 0
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 511
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 276
+(0018, 6022) Reference Pixel Y0                  SL: 39
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 7500
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 519
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '65.0'
+(0019, 1054) Private tag data                    DS: '82.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584(0018, 6012) Region Spatial Format               US: 1
+(0018, 6014) Region Data Type                    US: 1
+(0018, 6016) Region Flags                        UL: 2
+(0018, 6018) Region Location Min X0              UL: 512
+(0018, 601a) Region Location Min Y0              UL: 100
+(0018, 601c) Region Location Max X1              UL: 1023
+(0018, 601e) Region Location Max Y1              UL: 675
+(0018, 6020) Reference Pixel X0                  SL: 236
+(0018, 6022) Reference Pixel Y0                  SL: 39
+(0018, 6024) Physical Units X Direction          US: 3
+(0018, 6026) Physical Units Y Direction          US: 3
+(0018, 6028) Reference Pixel Physical Value X    FD: 0.0
+(0018, 602a) Reference Pixel Physical Value Y    FD: 0.0
+(0018, 602c) Physical Delta X                    FD: 0.0078125
+(0018, 602e) Physical Delta Y                    FD: 0.0078125
+(0018, 6030) Transducer Frequency                UL: 7500
+(0018, 6032) Pulse Repetition Frequency          UL: 7911
+(0019, 0010) Private Creator                     LO: 'HITACHI:1.2.392.200036.9123.100.50.127.2'
+(0019, 1008) Private tag data                    FD: 0.0
+(0019, 100c) Private tag data                    CS: '1'
+(0019, 100e) Private tag data                    DS: '0.0'
+(0019, 1018) Private tag data                    SL: 479
+(0019, 101a) Private tag data                    SL: 39
+(0019, 1040) Private tag data                    SS: 0
+(0019, 1046) Private tag data                    US: 0
+(0019, 1050) Private tag data                    SL: 0
+(0019, 1052) Private tag data                    DS: '65.0'
+(0019, 1054) Private tag data                    DS: '82.0'
+(0019, 1056) Private tag data                    FD: 4.0
+(0019, 1061) Private tag data                    UL: 3263299584]",3,20240229,"['Thy./SMP', '', '']",41,ARIETTA750,ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG,1.2.392.200036.9123.100.50.127111802200012240229101454000422551,,20240229,1.2.826.0.1.3680043.2.1041.56.108224238,1.2.840.10008.5.1.4.1.1.6.1,1318939,1,,US,MSK.LN GP,CN108224238,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",6,101454,FUJIFILM Healthcare Corporation,1024,"[(0008, 0100) Code Value                          SH: 'enusg2'
+(0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+(0008, 0103) Coding Scheme Version               SH: '1.0'
+(0008, 0104) Code Meaning                        LO: 'Procedure Code']",YES,ARIETTA 750,,KAZMIERCZAK^NICOLE OLIVIA,8,"[(0032, 1060) Requested Procedure Description     LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0007) Scheduled Procedure Step Descriptio LO: 'ENDOKRYNOLOGIA - Biopsja tarczycy cienkoiglowa pod kontrola USG'
+(0040, 0008)  Scheduled Protocol Code Sequence  1 item(s) ---- 
+   (0008, 0100) Code Value                          SH: 'enusg2'
+   (0008, 0102) Coding Scheme Designator            SH: '99NETRAAD'
+   (0008, 0103) Coding Scheme Version               SH: '1.0'
+   (0008, 0104) Code Meaning                        LO: 'Procedure Code'
+   ---------
+(0040, 0009) Scheduled Procedure Step ID         SH: '108224238'
+(0040, 1001) Requested Procedure ID              SH: 'CN108224238']",NO,,LINEAR,,101454,768,101454,CN108224238,102109,1.2.392.200036.9123.100.50.127111802200010240229102114065582357,7

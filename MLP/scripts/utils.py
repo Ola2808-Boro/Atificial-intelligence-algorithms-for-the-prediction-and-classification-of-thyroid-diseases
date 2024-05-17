@@ -6,6 +6,12 @@ import os
 import logging
 import json
 from torch.optim.lr_scheduler import LambdaLR,StepLR,ConstantLR,LinearLR,ExponentialLR,ReduceLROnPlateau
+import cv2
+import numpy as np
+from scipy.ndimage import convolve
+from pydicom import dcmread
+import sys
+
 
 logging.basicConfig(level=logging.INFO,filename='MLP.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 
@@ -34,6 +40,7 @@ class Neural(nn.Module):
         pass
     def forward(self,x):
         return (1/1+torch.exp(-torch.sin(x)))
+
 
 
 
@@ -78,6 +85,8 @@ def define_scheduler(scheduler:str,optimizer:torch.optim)->nn.Module:
          activation_function=nn.Tanh()
     logging.info(f'Returned scheduler {scheduler}')
     return scheduler
+
+
 
 
 def plot_data_distribution(df_list:list,title:str):
@@ -205,3 +214,5 @@ def create_experiments_dir(dir_name:str,BASE_DIR:str):
         print(error)
 
     return path
+
+
